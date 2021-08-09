@@ -24,8 +24,20 @@ exam %>%
   filter(class == 1) %>%
   select(english) # 섞어서 사용 가능
 
-exam %>% 
+exam %>%  # 정렬하기
   select(id, math) %>% 
+  head(10)
+exam %>% 
+  arrange(math)
+exam %>% 
+  arrange(desc(math))
+exam %>% 
+  arrange(class, math)
+
+exam %>% # 파생변수 추가하기 2(이게 더 편함) 
+  mutate(total = math + english + science,
+         mean = (math + english + science)/3) %>%
   head
-
-
+exam %>% 
+  mutate(test = ifelse(science >= 60, "pass", "fail")) %>% 
+  head
