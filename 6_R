@@ -1,3 +1,4 @@
+install.packages("dplyr")
 library(dplyr) # dplyr은 데이터 전처리 전문 패키지
 exam <- read.csv("csv_exam.csv")
 exam
@@ -23,3 +24,8 @@ exam %>% select(-math)
 exam %>% 
   filter(class == 1) %>%
   select(english) # %>% 은 여러 개 조합 가능
+
+exam %>% 
+  select(id, math) %>% 
+  head
+
